@@ -16,3 +16,11 @@ body {
 a.navbar-brand:link, a.navbar-brand:visited, a.navbar-brand:hover, a.navbar-brand:active {
     color: orangered !important;
 }
+
+.text-muted.credit button {
+    width: 24px;
+    height: 24px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0px;
+}
