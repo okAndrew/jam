@@ -13,7 +13,7 @@
         <property name="hibernate.connection.password">1111</property>
 
         <!-- List of XML mapping files -->
-        <mapping resource="/com/savruksergiy/jam/model/User.xbm.xml"/>
+        <mapping resource="/User.xbm.xml" />
 
     </session-factory>
 </hibernate-configuration>

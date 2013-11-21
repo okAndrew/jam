@@ -5,7 +5,7 @@
     <link rel="stylesheet" type="text/css" href="/spring_test5/resources/css/style.css" />
     <link rel="stylesheet" type="text/css" href="/spring_test5/resources/css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="/spring_test5/resources/css/social-buttons.css" />
-    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" />
 </head>
 <body>
 <div id="wrap">

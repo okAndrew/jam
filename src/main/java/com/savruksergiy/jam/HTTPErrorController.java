@@ -21,4 +21,10 @@ public class HTTPErrorController {
         return "errorPageTemplate";
     }
 
+    @RequestMapping(value = "/errors/500.html")
+    public String handle500(ModelMap model) {
+        model.addAttribute("errorCode", "500");
+        return "errorPageTemplate";
+    }
+
 }
