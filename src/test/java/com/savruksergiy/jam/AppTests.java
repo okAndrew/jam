@@ -1,4 +1,4 @@
-package com.savruksergiy.test5;
+package com.savruksergiy.jam;
 
 import org.junit.Before;
 import org.junit.Test;

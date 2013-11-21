@@ -1,4 +1,4 @@
-package com.savruksergiy.test5.model;
+package com.savruksergiy.jam.model;
 
 /**
  * Created with IntelliJ IDEA.
