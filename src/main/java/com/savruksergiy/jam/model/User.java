@@ -1,12 +1,22 @@
 package com.savruksergiy.jam.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import java.io.Serializable;
+import static javax.persistence.GenerationType.IDENTITY;
+
 /**
  * Created with IntelliJ IDEA.
  * User: sergiy
  * Date: 11/21/13
  * Time: 8:48 AM
  */
-public class User {
+
+@Entity
+@Table(name = "users", catalog = "jam")
+public class User implements Serializable {
 
     private long id;
     private String login;
@@ -28,6 +38,9 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    @Id
+    @GeneratedValue(strategy = IDENTITY)
 
     public long getId() {
 
@@ -51,12 +64,13 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", login='" + login + '\'' +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                '}';
-    }
+        StringBuilder user = new StringBuilder();
 
+        user.append("User{").append("id='").append(id).append("\'");
+        user.append(", login='").append(login).append("\'");
+        user.append(", email='").append(email).append("\'");
+        user.append(", password='").append(password).append("\'").append("}");
+
+        return user.toString();
+    }
 }
