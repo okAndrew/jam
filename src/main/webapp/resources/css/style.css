@@ -1,0 +1,39 @@
+@import "sticky_footer.css";
+
+@font-face {
+    font-family: Lobster;
+    src: url(/spring_test5/resources/fonts/lobster_1.4.otf);
+}
+
+body {
+    padding-top: 70px;
+    margin-bottom: 20px;
+}
+
+.navbar-brand {
+    font-family: Lobster;
+}
+
+a.navbar-brand:link, a.navbar-brand:visited, a.navbar-brand:hover, a.navbar-brand:active {
+    color: orangered !important;
+}
+
+.text-muted.credit button {
+    width: 24px;
+    height: 24px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0px;
+}
+
+div.row, div.col-md-4 {
+    border: 1px solid orangered;
+    padding: 0px;
+    margin: 0px;
+}
+
+div.mealcard {
+    border: 1px solid orangered;
+    height: 200px;
+    background-color: rgba(255, 69, 9, .5);
+}
