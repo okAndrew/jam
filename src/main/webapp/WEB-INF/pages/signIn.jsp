@@ -10,8 +10,8 @@
 
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="/spring_test5/resources/css/style.css">
-    <link rel="stylesheet" type="text/css" href="/spring_test5/resources/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/jam/resources/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/jam/resources/css/style.css">
 </head>
 <body>
 <div id="wrap">
@@ -24,9 +24,6 @@
             </div>
         </div>
     </div>
-
-    <jsp:include page="footer.jsp"></jsp:include>
-
 </div>
 
 <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>

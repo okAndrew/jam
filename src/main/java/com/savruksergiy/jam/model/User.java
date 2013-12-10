@@ -1,11 +1,6 @@
 package com.savruksergiy.jam.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import java.io.Serializable;
-import static javax.persistence.GenerationType.IDENTITY;
+import java.sql.Timestamp;
 
 /**
  * Created with IntelliJ IDEA.
@@ -14,14 +9,78 @@ import static javax.persistence.GenerationType.IDENTITY;
  * Time: 8:48 AM
  */
 
-@Entity
-@Table(name = "users", catalog = "jam")
-public class User implements Serializable {
+public class User {
 
     private long id;
     private String login;
     private String email;
     private String password;
+    private double karma;
+    private String sex;
+    private int language;
+    private int photo;
+
+    public void setKarma(double karma) {
+        this.karma = karma;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public void setLanguage(int language) {
+        this.language = language;
+    }
+
+    public void setPhoto(int photo) {
+        this.photo = photo;
+    }
+
+    public void setIs_delete(boolean is_delete) {
+        this.is_delete = is_delete;
+    }
+
+    public void setIs_banned(boolean is_banned) {
+        this.is_banned = is_banned;
+    }
+
+    public void setRegistered(Timestamp registered) {
+        this.registered = registered;
+    }
+
+    private boolean is_delete;
+    private boolean is_banned;
+
+    public double getKarma() {
+        return karma;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public int getLanguage() {
+        return language;
+    }
+
+    public int getPhoto() {
+        return photo;
+    }
+
+    public boolean isIs_delete() {
+        return is_delete;
+    }
+
+    public boolean isIs_banned() {
+        return is_banned;
+    }
+
+    public Timestamp getRegistered() {
+        return registered;
+    }
+
+    private Timestamp registered;
+
 
     public void setId(long id) {
         this.id = id;
@@ -38,9 +97,6 @@ public class User implements Serializable {
     public void setPassword(String password) {
         this.password = password;
     }
-
-    @Id
-    @GeneratedValue(strategy = IDENTITY)
 
     public long getId() {
 
@@ -66,10 +122,12 @@ public class User implements Serializable {
     public String toString() {
         StringBuilder user = new StringBuilder();
 
-        user.append("User{").append("id='").append(id).append("\'");
-        user.append(", login='").append(login).append("\'");
-        user.append(", email='").append(email).append("\'");
-        user.append(", password='").append(password).append("\'").append("}");
+        user.append("User[");
+        user.append("id: ").append(id).append(", ");
+        user.append("login: ").append(login).append(", ");
+        user.append("email: ").append(email).append(", ");
+        user.append("password: ").append(password);
+        user.append("];");
 
         return user.toString();
     }

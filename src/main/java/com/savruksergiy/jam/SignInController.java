@@ -1,9 +1,9 @@
 package com.savruksergiy.jam;
 
+import com.savruksergiy.jam.controller.dao.UserDAO;
 import com.savruksergiy.jam.model.User;
-import com.savruksergiy.jam.util.HibernateUtil;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,23 +21,19 @@ public class SignInController {
 
     @RequestMapping(method = RequestMethod.GET, value = "/sign_in")
     public String signIn() {
+
+        ApplicationContext context = new ClassPathXmlApplicationContext("Spring-Module.xml");
+
+        UserDAO userDAO = (UserDAO) context.getBean("userDAO");
         User user = new User();
-        user.setLogin("user");
-        user.setEmail("user@jam.com");
-        user.setPassword("qwerty");
+        user.setLogin("Sergiy");
+        user.setEmail("savruksergiy@gmail.com");
+        user.setPassword("11223344");
+        user.setSex("male");
 
-        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-        Session session = sessionFactory.openSession();
+        userDAO.insert(user);
 
-        session.beginTransaction();
-        Long id = (Long) session.save(user);
-        user.setId(id);
-
-        session.getTransaction().commit();
-
-        session.close();
-
-        return "sign_in";
+        return "signin";
     }
 
 }
