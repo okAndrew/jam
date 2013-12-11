@@ -4,8 +4,18 @@
 }
 
 body {
-    padding-top: 70px;
     margin-bottom: 20px;
+    background-color: #f0f0f0;
+}
+
+.panel {
+    background-color: white;
+}
+
+.navbar {
+    border-top: none;
+    border-left: none;
+    border-right: none;
 }
 
 .navbar-brand {
@@ -14,4 +24,36 @@ body {
 
 a.navbar-brand:link, a.navbar-brand:visited, a.navbar-brand:hover, a.navbar-brand:active {
     color: orangered !important;
+}
+
+.btn-custom {
+    color: #ffffff;
+    background-color: #FF4500;
+    border-color: #FF4500;
+}
+
+.btn-custom:hover,
+.btn-custom:focus,
+.btn-custom:active,
+.btn-custom.active {
+    color: #ffffff;
+    background-color: #e63e00;
+    border-color: #cc3700;
+}
+
+.btn-custom.disabled:hover,
+.btn-custom.disabled:focus,
+.btn-custom.disabled:active,
+.btn-custom.disabled.active,
+.btn-custom[disabled]:hover,
+.btn-custom[disabled]:focus,
+.btn-custom[disabled]:active,
+.btn-custom[disabled].active,
+fieldset[disabled] .btn-custom:hover,
+fieldset[disabled] .btn-custom:focus,
+fieldset[disabled] .btn-custom:active,
+fieldset[disabled] .btn-custom.active {
+    color: rgba(255, 255, 255, .5);
+    background-color: #ffffff;
+    border-color: #FF4500;
 }

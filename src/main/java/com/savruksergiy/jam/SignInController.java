@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class SignInController {
 
-    @RequestMapping(method = RequestMethod.GET, value = "/sign_in")
+    @RequestMapping(method = RequestMethod.GET, value = "/signin")
     public String signIn() {
 
         ApplicationContext context = new ClassPathXmlApplicationContext("Spring-Module.xml");
