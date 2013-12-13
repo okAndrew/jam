@@ -11,6 +11,11 @@ public class HomeController {
 
     private static Logger logger = Logger.getLogger(HomeController.class);
 
+    @RequestMapping({"/javascript"})
+    public String javaScriptPage() {
+        return "javascript";
+    }
+
     @RequestMapping({"/", "/home"})
     public String homePage(ModelMap model) {
         model.addAttribute("message", "Home page");

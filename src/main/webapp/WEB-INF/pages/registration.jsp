@@ -12,8 +12,16 @@
 <div class="container">
     <div class="panel panel-default">
         <div class="panel-body">
+
             <div class="row">
-                <div class="col-xs-12 col-xs-offset-0 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4 col-lg-4 col-lg-offset-4">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 reg-header">
+                    <h2>Registration</h2>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                    <h3>Term of use</h3>
+                    <p>Fusce laoreet lectus ac massa laoreet vulputate. Suspendisse vulputate aliquet pharetra. Curabitur tempus metus nulla, nec viverra elit faucibus non. Sed consectetur consectetur eros, in facilisis urna consectetur sed. Aliquam congue ornare quam eget interdum. Vivamus adipiscing tortor a euismod auctor. Cras a tellus quis nisl blandit consectetur nec in dui. Nunc ut urna fermentum, sollicitudin sem in, porttitor mauris. Nam leo leo, lacinia nec euismod eget, dapibus eget nulla. Nam laoreet gravida pulvinar. Etiam a purus orci. Curabitur aliquam, enim id posuere luctus, nibh quam porta orci, ac ornare libero lectus a purus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.<p>
+                </div>
+                <div class="col-xs-12 col-sm-8 col-md-4 col-lg-4">
                     <form role="form">
                         <div class="form-group">
                             <label for="regEmail">Email address</label>
@@ -40,6 +48,7 @@
                 </div>
             </div>
         </div>
+        <jsp:include page="footer.jsp"></jsp:include>
     </div>
 </div>
 <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>

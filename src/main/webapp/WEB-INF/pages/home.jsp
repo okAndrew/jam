@@ -13,6 +13,7 @@
         <div class="panel-body">
             ${message}
         </div>
+        <jsp:include page="footer.jsp"></jsp:include>
     </div>
 </div>
 
