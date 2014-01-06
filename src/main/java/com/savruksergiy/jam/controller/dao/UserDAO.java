@@ -10,4 +10,13 @@ import com.savruksergiy.jam.model.User;
  * To change this template use File | Settings | File Templates.
  */
 public interface UserDAO extends GenericDAO<User> {
+
+	int insert(User user);
+
+	User get(long id);
+
+	int update(User object);
+
+	int delete(User object);
+	
 }
