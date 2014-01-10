@@ -2,24 +2,24 @@ package com.savruksergiy.jam.model;
 
 import java.sql.Timestamp;
 
-/**
- * Created with IntelliJ IDEA.
- * User: sergiy
- * Date: 11/21/13
- * Time: 8:48 AM
- */
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 public class User {
 
     private long id;
     private String login;
-    private String email;
+	private String email;
     private String password;
     private double karma;
     private String sex;
     private int language;
     private int photo;
-
+    private boolean isDelete;
+    private boolean isBanned;
+    
     public void setKarma(double karma) {
         this.karma = karma;
     }
@@ -36,20 +36,17 @@ public class User {
         this.photo = photo;
     }
 
-    public void setIs_delete(boolean is_delete) {
-        this.is_delete = is_delete;
+    public void setIsDelete(boolean isDelete) {
+        this.isDelete = isDelete;
     }
 
-    public void setIs_banned(boolean is_banned) {
-        this.is_banned = is_banned;
+    public void setIsBanned(boolean isBanned) {
+        this.isBanned = isBanned;
     }
 
     public void setRegistered(Timestamp registered) {
         this.registered = registered;
     }
-
-    private boolean is_delete;
-    private boolean is_banned;
 
     public double getKarma() {
         return karma;
@@ -67,12 +64,12 @@ public class User {
         return photo;
     }
 
-    public boolean isIs_delete() {
-        return is_delete;
+    public boolean getIsDelete() {
+        return isDelete;
     }
 
-    public boolean isIs_banned() {
-        return is_banned;
+    public boolean getIsBanned() {
+        return isBanned;
     }
 
     public Timestamp getRegistered() {

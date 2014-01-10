@@ -1,6 +1,7 @@
 package com.savruksergiy.jam;
 
 import org.apache.log4j.Logger;
+import org.hibernate.Session;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,7 +23,7 @@ public class HomeController {
         return "home";
     }
 
-    @RequestMapping({"/home/{page:[0-9]+}"})
+    @RequestMapping({"/home/{page:[0-9]+}"}) 
 	public String printWelcome(ModelMap model, @PathVariable("page") String pageStr) {
         int page = 0;
 
