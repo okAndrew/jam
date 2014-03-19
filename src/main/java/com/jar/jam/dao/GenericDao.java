@@ -1,12 +1,18 @@
 package com.jar.jam.dao;
 
+import java.util.List;
+
 public interface GenericDao<T> {
-	
-    public T get(long id);
 
-    public long insert(T object);
+	Long create(T o);
 
-    public long update(T object);
+	Long saveOrUpdate(T o);
 
-    public long delete(T object);
+	void update(T object);
+
+	void delete(Long id);
+
+	T get(Long id);
+
+	List<T> getAll();
 }
