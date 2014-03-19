@@ -1,14 +1,36 @@
 package com.jar.jam.domain.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "foods")
 public class Food {
 
+	@Id
+	@GeneratedValue
+	@Column(name = "id")
 	private long id;
+
+	@Column(name = "name")
 	private String name;
+
+	@Column(name = "proteine")
 	private double proteine;
+
+	@Column(name = "fat")
 	private double fat;
+
+	@Column(name = "carb")
 	private double carb;
+
+	@Column(name = "glycaemic")
 	private int glycaemic;
+
+	@Column(name = "kcal")
 	private int kcal;
 
 	public long getId() {
