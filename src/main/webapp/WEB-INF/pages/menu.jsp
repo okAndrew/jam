@@ -1,11 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="myPageContext" value="${pageContext.servletContext.contextPath}"></c:set>
 
-<noscript>
-    <meta HTTP-EQUIV="REFRESH" content="0; url=http://localhost:8080/jam/javascript">
-</noscript>
-
-<nav class="navbar navbar-default" role="navigation">
+<nav class="navbar navbar-default">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse"
