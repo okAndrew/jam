@@ -59,12 +59,14 @@ public abstract class GenericDaoImpl<T> implements GenericDao<T> {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	@Transactional
 	public T get(Long id) {
 		return (T) getSession().get(type, id);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	@Transactional
 	public List<T> getAll() {
