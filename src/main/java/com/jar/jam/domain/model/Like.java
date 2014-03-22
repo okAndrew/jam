@@ -1,16 +1,43 @@
 package com.jar.jam.domain.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
 import com.jar.jam.domain.enums.EntityType;
 
+@Entity
+@Table(name = "likes")
 public class Like {
 
-	private long id;
+	@Id
+	@GeneratedValue
+	@Column(name = "id")
+	private Long id;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "user_id")
 	private User user;
-	private EntityType entity;
-	private long entityId;
-	private Like like;
 
-	public long getId() {
+	@Enumerated(EnumType.STRING)
+	@Column(name = "entity")
+	private EntityType entity;
+	
+	@Column(name = "entity_id")
+	private Long entityId;
+	
+	@Enumerated(EnumType.STRING)
+	@Column(name = "like_type")
+	private com.jar.jam.domain.enums.Like like;
+
+	public Long getId() {
 		return id;
 	}
 
@@ -22,15 +49,15 @@ public class Like {
 		return entity;
 	}
 
-	public long getEntityId() {
+	public Long getEntityId() {
 		return entityId;
 	}
 
-	public Like getLike() {
+	public com.jar.jam.domain.enums.Like getLike() {
 		return like;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -42,11 +69,11 @@ public class Like {
 		this.entity = entity;
 	}
 
-	public void setEntityId(long entityId) {
+	public void setEntityId(Long entityId) {
 		this.entityId = entityId;
 	}
 
-	public void setLike(Like like) {
+	public void setLike(com.jar.jam.domain.enums.Like like) {
 		this.like = like;
 	}
 

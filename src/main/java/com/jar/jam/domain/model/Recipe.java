@@ -1,17 +1,58 @@
 package com.jar.jam.domain.model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "recipes")
 public class Recipe {
 
-	private long id;
-	private String name;
-	private String description;
-	private User user;
-	private int views;
-	private int complexity;
-	private Recipe parent;
-	private double raiting;
+	@Id
+	@GeneratedValue
+	@Column(name = "id")
+	private Long id;
 
-	public long getId() {
+	@Column(name = "name")
+	private String name;
+
+	@Column(name = "description")
+	private String description;
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "user_id")
+	private User user;
+	
+	@Column(name = "views")
+	private Integer views;
+	
+	@Column(name = "complexity")
+	private Integer complexity;
+	
+	@ManyToOne(cascade={CascadeType.ALL})
+    @JoinColumn(name="recipe_id")
+	private Recipe parent;
+	
+	@Column(name = "raiting")
+	private Double raiting;
+	
+	@ManyToMany
+	@JoinTable(name = "tags",
+		joinColumns = { @JoinColumn(name = "recipe_id", referencedColumnName = "id") },
+		inverseJoinColumns = { @JoinColumn(name = "tag_id", referencedColumnName = "id") })
+	private List<Tag> tags;
+
+	public Long getId() {
 		return id;
 	}
 
@@ -27,11 +68,11 @@ public class Recipe {
 		return user;
 	}
 
-	public int getViews() {
+	public Integer getViews() {
 		return views;
 	}
 
-	public int getComplexity() {
+	public Integer getComplexity() {
 		return complexity;
 	}
 
@@ -39,11 +80,11 @@ public class Recipe {
 		return parent;
 	}
 
-	public double getRaiting() {
+	public Double getRaiting() {
 		return raiting;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -59,11 +100,11 @@ public class Recipe {
 		this.user = user;
 	}
 
-	public void setViews(int views) {
+	public void setViews(Integer views) {
 		this.views = views;
 	}
 
-	public void setComplexity(int complexity) {
+	public void setComplexity(Integer complexity) {
 		this.complexity = complexity;
 	}
 
@@ -71,7 +112,7 @@ public class Recipe {
 		this.parent = parent;
 	}
 
-	public void setRaiting(double raiting) {
+	public void setRaiting(Double raiting) {
 		this.raiting = raiting;
 	}
 

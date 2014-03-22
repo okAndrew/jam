@@ -1,61 +1,85 @@
 package com.jar.jam.domain.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 import com.jar.jam.domain.enums.UserRoles;
 
+@Entity
+@Table(name = "users")
 public class User {
 
-	private long id;
+	@Id
+	@GeneratedValue
+	@Column(name = "id")
+	private Long id;
+	
+	@Column(name = "email")
 	private String email;
+	
+	@Column(name = "password")
 	private String password;
+	
+	@Column(name = "login")
 	private String login;
+	
+	@Enumerated(EnumType.STRING)
+	@Column(name = "role")
 	private UserRoles role;
-	private double raiting;
+	
+	@Column(name = "raiting")
+	private Double raiting;
 
-	public long getId() {
+	public Long getId() {
 		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
 	}
 
 	public String getEmail() {
 		return email;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
 	public String getPassword() {
 		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
 	}
 
 	public String getLogin() {
 		return login;
 	}
 
-	public void setLogin(String login) {
-		this.login = login;
-	}
-
 	public UserRoles getRole() {
 		return role;
+	}
+
+	public Double getRaiting() {
+		return raiting;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public void setLogin(String login) {
+		this.login = login;
 	}
 
 	public void setRole(UserRoles role) {
 		this.role = role;
 	}
 
-	public double getRaiting() {
-		return raiting;
-	}
-
-	public void setRaiting(double raiting) {
+	public void setRaiting(Double raiting) {
 		this.raiting = raiting;
 	}
 

@@ -1,23 +1,51 @@
 package com.jar.jam.domain.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
 import com.jar.jam.domain.enums.ProductValueType;
 
+@Entity
+@Table(name = "ingridients")
 public class Ingridient {
 
-	private long id;
-	private Food food;
-	private double value;
-	private ProductValueType valueType;
+	@Id
+	@GeneratedValue
+	@Column(name = "id")
+	private Long id;
 
-	public long getId() {
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "food_id")
+	private Food food;
+
+	@Column(name = "value")
+	private Double value;
+
+	@Enumerated(EnumType.STRING)
+	@Column(name = "value_type")
+	private ProductValueType valueType;
+	
+	@ManyToOne
+	@JoinColumn(name = "recipe_id")
+	private Recipe recipe;
+
+	public Long getId() {
 		return id;
 	}
 
-	public Food getFoodId() {
+	public Food getFood() {
 		return food;
 	}
 
-	public double getValue() {
+	public Double getValue() {
 		return value;
 	}
 
@@ -25,7 +53,7 @@ public class Ingridient {
 		return valueType;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -33,7 +61,7 @@ public class Ingridient {
 		this.food = food;
 	}
 
-	public void setValue(double value) {
+	public void setValue(Double value) {
 		this.value = value;
 	}
 

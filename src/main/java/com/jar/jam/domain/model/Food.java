@@ -13,27 +13,27 @@ public class Food {
 	@Id
 	@GeneratedValue
 	@Column(name = "id")
-	private long id;
+	private Long id;
 
-	@Column(name = "name")
+	@Column(name = "name", unique = true, nullable = false)
 	private String name;
 
 	@Column(name = "proteine")
-	private double proteine;
+	private Double proteine;
 
 	@Column(name = "fat")
-	private double fat;
+	private Double fat;
 
 	@Column(name = "carb")
-	private double carb;
+	private Double carb;
 
 	@Column(name = "glycaemic")
-	private int glycaemic;
+	private Integer glycaemic;
 
 	@Column(name = "kcal")
-	private int kcal;
+	private Integer kcal;
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
@@ -41,27 +41,27 @@ public class Food {
 		return name;
 	}
 
-	public double getProteine() {
+	public Double getProteine() {
 		return proteine;
 	}
 
-	public double getFat() {
+	public Double getFat() {
 		return fat;
 	}
 
-	public double getCarb() {
+	public Double getCarb() {
 		return carb;
 	}
 
-	public int getGlycaemic() {
+	public Integer getGlycaemic() {
 		return glycaemic;
 	}
 
-	public int getKcal() {
+	public Integer getKcal() {
 		return kcal;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -69,23 +69,23 @@ public class Food {
 		this.name = name;
 	}
 
-	public void setProteine(double proteine) {
+	public void setProteine(Double proteine) {
 		this.proteine = proteine;
 	}
 
-	public void setFat(double fat) {
+	public void setFat(Double fat) {
 		this.fat = fat;
 	}
 
-	public void setCarb(double carb) {
+	public void setCarb(Double carb) {
 		this.carb = carb;
 	}
 
-	public void setGlycaemic(int glycaemic) {
+	public void setGlycaemic(Integer glycaemic) {
 		this.glycaemic = glycaemic;
 	}
 
-	public void setKcal(int kcal) {
+	public void setKcal(Integer kcal) {
 		this.kcal = kcal;
 	}
 
