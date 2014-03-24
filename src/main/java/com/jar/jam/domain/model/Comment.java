@@ -1,18 +1,50 @@
 package com.jar.jam.domain.model;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
 import com.jar.jam.domain.enums.EntityType;
 
+@Entity
+@Table(name = "comments")
 public class Comment {
 
-	private long id;
+	@Id
+	@GeneratedValue
+	@Column(name = "id")
+	private Long id;
+	
+	@Column(name = "comment")
 	private String comment;
-	private long userId;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "user_id")
+	private User user;
+	
+	@Enumerated(EnumType.STRING)
+	@Column(name = "entity")
 	private EntityType entity;
-	private long entityId;
+	
+	@Column(name = "entity_id")
+	private Long entityId;
+	
+	@ManyToOne(cascade={CascadeType.ALL})
+    @JoinColumn(name="comment_id")
 	private Comment parrent;
-	private double likes;
+	
+	@Column(name = "likes")
+	private Double likes;
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
@@ -20,15 +52,15 @@ public class Comment {
 		return comment;
 	}
 
-	public long getUserId() {
-		return userId;
+	public User getUser() {
+		return user;
 	}
 
 	public EntityType getEntity() {
 		return entity;
 	}
 
-	public long getEntityId() {
+	public Long getEntityId() {
 		return entityId;
 	}
 
@@ -36,11 +68,11 @@ public class Comment {
 		return parrent;
 	}
 
-	public double getLikes() {
+	public Double getLikes() {
 		return likes;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -48,15 +80,15 @@ public class Comment {
 		this.comment = comment;
 	}
 
-	public void setUserId(long userId) {
-		this.userId = userId;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	public void setEntity(EntityType entity) {
 		this.entity = entity;
 	}
 
-	public void setEntityId(long entityId) {
+	public void setEntityId(Long entityId) {
 		this.entityId = entityId;
 	}
 
@@ -64,7 +96,7 @@ public class Comment {
 		this.parrent = parrent;
 	}
 
-	public void setLikes(double likes) {
+	public void setLikes(Double likes) {
 		this.likes = likes;
 	}
 
@@ -74,13 +106,12 @@ public class Comment {
 		int result = 1;
 		result = prime * result + ((comment == null) ? 0 : comment.hashCode());
 		result = prime * result + ((entity == null) ? 0 : entity.hashCode());
-		result = prime * result + (int) (entityId ^ (entityId >>> 32));
-		result = prime * result + (int) (id ^ (id >>> 32));
-		long temp;
-		temp = Double.doubleToLongBits(likes);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result
+				+ ((entityId == null) ? 0 : entityId.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((likes == null) ? 0 : likes.hashCode());
 		result = prime * result + ((parrent == null) ? 0 : parrent.hashCode());
-		result = prime * result + (int) (userId ^ (userId >>> 32));
+		result = prime * result + ((user == null) ? 0 : user.hashCode());
 		return result;
 	}
 
@@ -100,19 +131,30 @@ public class Comment {
 			return false;
 		if (entity != other.entity)
 			return false;
-		if (entityId != other.entityId)
+		if (entityId == null) {
+			if (other.entityId != null)
+				return false;
+		} else if (!entityId.equals(other.entityId))
 			return false;
-		if (id != other.id)
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
 			return false;
-		if (Double.doubleToLongBits(likes) != Double
-				.doubleToLongBits(other.likes))
+		if (likes == null) {
+			if (other.likes != null)
+				return false;
+		} else if (!likes.equals(other.likes))
 			return false;
 		if (parrent == null) {
 			if (other.parrent != null)
 				return false;
 		} else if (!parrent.equals(other.parrent))
 			return false;
-		if (userId != other.userId)
+		if (user == null) {
+			if (other.user != null)
+				return false;
+		} else if (!user.equals(other.user))
 			return false;
 		return true;
 	}
@@ -120,8 +162,8 @@ public class Comment {
 	// TODO Update to StringBuilder.
 	@Override
 	public String toString() {
-		return "Comment [id=" + id + ", comment=" + comment + ", userId="
-				+ userId + ", entity=" + entity + ", entityId=" + entityId
+		return "Comment [id=" + id + ", comment=" + comment + ", user=" + user
+				+ ", entity=" + entity + ", entityId=" + entityId
 				+ ", parrent=" + parrent + ", likes=" + likes + "]";
 	}
 

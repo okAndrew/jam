@@ -1,13 +1,34 @@
 package com.jar.jam.domain.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "steps")
 public class Step {
 
-	private long id;
+	@Id
+	@GeneratedValue
+	@Column(name = "id")
+	private Long id;
+	
+	@Column(name = "description")
 	private String description;
-	private int order;
+	
+	@Column(name = "order")
+	private Integer order;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "recipe_id")
 	private Recipe recipe;
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
@@ -15,7 +36,7 @@ public class Step {
 		return description;
 	}
 
-	public int getOrder() {
+	public Integer getOrder() {
 		return order;
 	}
 
@@ -23,7 +44,7 @@ public class Step {
 		return recipe;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -31,7 +52,7 @@ public class Step {
 		this.description = description;
 	}
 
-	public void setOrder(int order) {
+	public void setOrder(Integer order) {
 		this.order = order;
 	}
 

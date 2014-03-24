@@ -13,7 +13,7 @@ public class Food {
 	@Id
 	@Column(name = "id")
 	@GeneratedValue
-	private long id;
+	private Long id;
 
 	@Column(name = "name")
 	private String name;
