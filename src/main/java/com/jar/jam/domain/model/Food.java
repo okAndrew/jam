@@ -11,8 +11,8 @@ import javax.persistence.Table;
 public class Food {
 
 	@Id
-	@GeneratedValue
 	@Column(name = "id")
+	@GeneratedValue
 	private long id;
 
 	@Column(name = "name")
