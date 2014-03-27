@@ -46,10 +46,7 @@ public class Recipe {
 	@Column(name = "raiting")
 	private Double raiting;
 	
-	@ManyToMany
-	@JoinTable(name = "tags",
-		joinColumns = { @JoinColumn(name = "recipe_id", referencedColumnName = "id") },
-		inverseJoinColumns = { @JoinColumn(name = "tag_id", referencedColumnName = "id") })
+	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "recipes")
 	private List<Tag> tags;
 
 	public Long getId() {
