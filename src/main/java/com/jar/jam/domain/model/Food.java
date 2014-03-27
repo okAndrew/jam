@@ -11,29 +11,29 @@ import javax.persistence.Table;
 public class Food {
 
 	@Id
-	@GeneratedValue
 	@Column(name = "id")
+	@GeneratedValue
 	private Long id;
 
-	@Column(name = "name", unique = true, nullable = false)
+	@Column(name = "name")
 	private String name;
 
 	@Column(name = "proteine")
-	private Double proteine;
+	private double proteine;
 
 	@Column(name = "fat")
-	private Double fat;
+	private double fat;
 
 	@Column(name = "carb")
-	private Double carb;
+	private double carb;
 
 	@Column(name = "glycaemic")
-	private Integer glycaemic;
+	private int glycaemic;
 
 	@Column(name = "kcal")
-	private Integer kcal;
+	private int kcal;
 
-	public Long getId() {
+	public long getId() {
 		return id;
 	}
 
@@ -41,27 +41,27 @@ public class Food {
 		return name;
 	}
 
-	public Double getProteine() {
+	public double getProteine() {
 		return proteine;
 	}
 
-	public Double getFat() {
+	public double getFat() {
 		return fat;
 	}
 
-	public Double getCarb() {
+	public double getCarb() {
 		return carb;
 	}
 
-	public Integer getGlycaemic() {
+	public int getGlycaemic() {
 		return glycaemic;
 	}
 
-	public Integer getKcal() {
+	public int getKcal() {
 		return kcal;
 	}
 
-	public void setId(Long id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
@@ -69,23 +69,23 @@ public class Food {
 		this.name = name;
 	}
 
-	public void setProteine(Double proteine) {
+	public void setProteine(double proteine) {
 		this.proteine = proteine;
 	}
 
-	public void setFat(Double fat) {
+	public void setFat(double fat) {
 		this.fat = fat;
 	}
 
-	public void setCarb(Double carb) {
+	public void setCarb(double carb) {
 		this.carb = carb;
 	}
 
-	public void setGlycaemic(Integer glycaemic) {
+	public void setGlycaemic(int glycaemic) {
 		this.glycaemic = glycaemic;
 	}
 
-	public void setKcal(Integer kcal) {
+	public void setKcal(int kcal) {
 		this.kcal = kcal;
 	}
 

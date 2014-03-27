@@ -12,6 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.jar.jam.domain.enums.EntityType;
+import com.jar.jam.domain.enums.LikeType;
 
 @Entity
 @Table(name = "likes")
@@ -21,7 +22,7 @@ public class Like {
 	@GeneratedValue
 	@Column(name = "id")
 	private Long id;
-	
+
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "user_id")
 	private User user;
@@ -29,13 +30,13 @@ public class Like {
 	@Enumerated(EnumType.STRING)
 	@Column(name = "entity")
 	private EntityType entity;
-	
+
 	@Column(name = "entity_id")
 	private Long entityId;
-	
+
 	@Enumerated(EnumType.STRING)
 	@Column(name = "like_type")
-	private com.jar.jam.domain.enums.Like like;
+	private LikeType like;
 
 	public Long getId() {
 		return id;
@@ -53,7 +54,7 @@ public class Like {
 		return entityId;
 	}
 
-	public com.jar.jam.domain.enums.Like getLike() {
+	public LikeType getLike() {
 		return like;
 	}
 
@@ -73,7 +74,7 @@ public class Like {
 		this.entityId = entityId;
 	}
 
-	public void setLike(com.jar.jam.domain.enums.Like like) {
+	public void setLike(LikeType like) {
 		this.like = like;
 	}
 
