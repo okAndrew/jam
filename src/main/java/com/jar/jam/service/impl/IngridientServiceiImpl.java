@@ -6,7 +6,6 @@ import com.jar.jam.domain.model.Ingridient;
 import com.jar.jam.service.IngridientService;
 
 @Service
-public class IngridientServiceiImpl extends GenericServiceImpl<Ingridient>
-		implements IngridientService {
+public class IngridientServiceiImpl extends GenericServiceImpl<Ingridient> implements IngridientService {
 
 }

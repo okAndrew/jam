@@ -1,5 +1,7 @@
 package com.jar.jam.service;
 
-public interface IngridientService extends GenericService<IngridientService> {
+import com.jar.jam.domain.model.Ingridient;
+
+public interface IngridientService extends GenericService<Ingridient> {
 
 }
