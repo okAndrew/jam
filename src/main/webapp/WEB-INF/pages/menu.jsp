@@ -1,4 +1,9 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=utf8"
+	pageEncoding="utf8"%>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <c:set var="myPageContext" value="${pageContext.servletContext.contextPath}"></c:set>
 
 <nav class="navbar navbar-default">
@@ -18,7 +23,7 @@
                 <li id="nav_home"><a href="${myPageContext}/home">Home</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li id="nav_registration"><a href="${myPageContext}/registration">Registration</a></li>
+                <li id="nav_registration"><a href="${myPageContext}/sign-up">Registration</a></li>
                 <li id="nav_signin"><a href="${myPageContext}/signin">Sign in</a></li>
             </ul>
         </div>

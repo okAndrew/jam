@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Type;
+
 import com.jar.jam.domain.enums.UserRoles;
 
 @Entity
@@ -18,22 +20,26 @@ public class User {
 	@GeneratedValue
 	@Column(name = "id")
 	private Long id;
-	
+
 	@Column(name = "email")
 	private String email;
-	
+
 	@Column(name = "password")
 	private String password;
-	
+
 	@Column(name = "login")
 	private String login;
-	
+
 	@Enumerated(EnumType.STRING)
 	@Column(name = "role")
 	private UserRoles role;
-	
+
 	@Column(name = "raiting")
 	private Double raiting;
+
+	@Column(name = "is_delete", nullable = false)
+	@Type(type = "org.hibernate.type.NumericBooleanType")
+	private boolean isDelete;
 
 	public Long getId() {
 		return id;
@@ -81,6 +87,14 @@ public class User {
 
 	public void setRaiting(Double raiting) {
 		this.raiting = raiting;
+	}
+
+	public boolean getIsDelete() {
+		return isDelete;
+	}
+
+	public void setIsDelete(boolean isDelete) {
+		this.isDelete = isDelete;
 	}
 
 	@Override
