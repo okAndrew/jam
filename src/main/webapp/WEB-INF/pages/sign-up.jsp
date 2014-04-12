@@ -26,16 +26,17 @@
 						<div class="panel-body">
 							<form:form id="signUp" method="post" action="sign-up" modelAttribute="user" role="form" onsubmit="return validateForm()">
 								<div id="sign-up-email-input" class="form-group">
-									<form:input id="email" class="form-control last" path="email" placeholder="Email" onfocusout="validateEmail()" />
 									<label class="control-label hide">Enter valid email</label>
+									<form:input id="email" class="form-control last" path="email" placeholder="Email" onfocusout="validateEmail()" />
 								</div>
 								<div id="sign-up-login-input" class="form-group">
-									<form:input id="login" class="form-control last" path="login" placeholder="Login" onfocusout="validateLogin()" />
 									<label class="control-label hide">Password should be more than 6 symbols</label>
+									<form:input id="login" class="form-control last" path="login" placeholder="Login" onfocusout="validateLogin()" />
+
 								</div>
 								<div id="sign-up-password-input" class="form-group">
-									<form:input id="password" class="form-control last" path="password" placeholder="Password" onfocusout="validatePassword()" />
 									<label class="control-label hide">Password should be more than 6 symbols</label>
+									<form:input id="password" class="form-control last" path="password" placeholder="Password" onfocusout="validatePassword()" />
 								</div>
 								<input type="submit" id="signUpButton" class="btn btn-primary" value="Sign Up" />
 							</form:form>
