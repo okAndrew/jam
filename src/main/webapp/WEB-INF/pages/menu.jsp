@@ -20,6 +20,7 @@
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="${myPageContext}/sign-up">Registration</a></li>
 				<li><a href="${myPageContext}/signin">Sign in</a></li>
+				<li><a href="${myPageContext}/settings">Settings</a></li>
 			</ul>
 		</div>
 	</div>
