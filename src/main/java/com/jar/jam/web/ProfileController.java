@@ -13,22 +13,21 @@ import com.jar.jam.service.impl.UserServiceImpl;
 
 @Controller
 public class ProfileController {
-	
+
 	@Autowired
 	private UserServiceImpl userService;
-	
-	@RequestMapping(value={"/profile"}, method = {RequestMethod.GET})
-	public String openProfilePage(ModelMap model){
+
+	@RequestMapping(value = { "/profile" }, method = { RequestMethod.GET })
+	public String openProfilePage(ModelMap model) {
 		model.addAttribute("user", userService.get(1L));
 		model.addAttribute("message", "Profile page");
 		return "profile";
 	}
-	
-	@RequestMapping(value={"/profile"}, method = {RequestMethod.POST})
+
+	@RequestMapping(value = { "/profile" }, method = { RequestMethod.POST })
 	public String changeDataUser(@ModelAttribute("user") User user,
-			BindingResult result){
-		userService.saveOrUpdate(user);
-		
+			BindingResult result) {
+		userService.update(user);
 		return "profile";
 	}
 }

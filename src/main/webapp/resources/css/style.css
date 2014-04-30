@@ -30,6 +30,10 @@ body>div.container {
 	width: 80%;
 }
 
+.block {
+	width: 50%;
+}
+
 .profile-field {
-	width: 40%;
+	width: 80%;
 }

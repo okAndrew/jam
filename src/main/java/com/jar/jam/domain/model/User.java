@@ -1,5 +1,7 @@
 package com.jar.jam.domain.model;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -7,9 +9,12 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.Type;
 
+import com.jar.jam.domain.enums.SexType;
 import com.jar.jam.domain.enums.UserRoles;
 
 @Entity
@@ -26,6 +31,20 @@ public class User {
 
 	@Column(name = "password")
 	private String password;
+
+	@Column(name = "first_name")
+	private String firstName;
+
+	@Column(name = "last_name")
+	private String lastName;
+
+	@Column(name = "birthday")
+	@Temporal(value = TemporalType.DATE)
+	private Date birthday;
+
+	@Enumerated(EnumType.STRING)
+	@Column(name = "sex")
+	private SexType sex;
 
 	@Column(name = "login")
 	private String login;
@@ -97,72 +116,40 @@ public class User {
 		this.isDelete = isDelete;
 	}
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((email == null) ? 0 : email.hashCode());
-		result = prime * result + (int) (id ^ (id >>> 32));
-		result = prime * result + ((login == null) ? 0 : login.hashCode());
-		result = prime * result
-				+ ((password == null) ? 0 : password.hashCode());
-		long temp;
-		temp = Double.doubleToLongBits(raiting);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
-		result = prime * result + ((role == null) ? 0 : role.hashCode());
-		return result;
+	public String getFirstName() {
+		return firstName;
 	}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		User other = (User) obj;
-		if (email == null) {
-			if (other.email != null)
-				return false;
-		} else if (!email.equals(other.email))
-			return false;
-		if (id != other.id)
-			return false;
-		if (login == null) {
-			if (other.login != null)
-				return false;
-		} else if (!login.equals(other.login))
-			return false;
-		if (password == null) {
-			if (other.password != null)
-				return false;
-		} else if (!password.equals(other.password))
-			return false;
-		if (Double.doubleToLongBits(raiting) != Double
-				.doubleToLongBits(other.raiting))
-			return false;
-		if (role == null) {
-			if (other.role != null)
-				return false;
-		} else if (!role.equals(other.role))
-			return false;
-		return true;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
-	@Override
-	public String toString() {
-		StringBuilder user = new StringBuilder();
+	public String getLastName() {
+		return lastName;
+	}
 
-		user.append("User [id=").append(id);
-		user.append(", email=").append(email);
-		user.append(", password=").append(password);
-		user.append(", login=").append(login);
-		user.append(", role=").append(role);
-		user.append(", raiting=").append(raiting);
-		user.append("]");
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
 
-		return user.toString();
+	public Date getBirthday() {
+		return birthday;
+	}
+
+	public void setBirthday(Date birthday) {
+		this.birthday = birthday;
+	}
+
+	public SexType getSex() {
+		return sex;
+	}
+
+	public void setSex(SexType sex) {
+		this.sex = sex;
+	}
+
+	public void setDelete(boolean isDelete) {
+		this.isDelete = isDelete;
 	}
 
 }
