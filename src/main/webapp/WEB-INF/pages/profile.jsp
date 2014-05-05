@@ -17,10 +17,16 @@
 		<div class="panel panel-default">
 			<div class="panel-body">
 				<div class="pull-left avatar-block">
-					<img src="/jam/resources/img/default-avatar.jpg" alt="..."
-						class="img-thumbnail">
+					<c:if test="${userAvatar != null}">
+						<img src="${userAvatar}" alt="..." class="img-thumbnail">
+					</c:if>
+					<c:if test="${userAvatar == null}">
+						<img src="/jam/resources/img/default-avatar.jpg" alt="..."
+							class="img-thumbnail">
+					</c:if>
 					<div>
-						<button type="button" class="btn btn-default btn-block">Change
+						<button type="button" class="btn btn-default btn-block"
+							data-toggle="modal" data-target="#uploadFile">Change
 							avatar</button>
 					</div>
 				</div>
@@ -76,18 +82,18 @@
 							</div>
 
 							<div class="date-form">
-							<div id="profileAge"
-								class="control-group form-group profile-field">
-								<label for="date-picker-2" class="control-label">Birthday:</label>
-								<div class="controls">
-									<div class="input-group">
-										<form:input id="age" type="text" path="birthday"
-											class="date-picker form-control" />
-										<label for="age" class="input-group-addon btn"><i
-											class="glyphicon glyphicon-calendar"></i> </label>
+								<div id="profileAge"
+									class="control-group form-group profile-field">
+									<label for="date-picker-2" class="control-label">Birthday:</label>
+									<div class="controls">
+										<div class="input-group">
+											<form:input id="age" type="text" path="birthday"
+												class="date-picker form-control" />
+											<label for="age" class="input-group-addon btn"><i
+												class="glyphicon glyphicon-calendar"></i> </label>
+										</div>
 									</div>
 								</div>
-							</div>
 							</div>
 
 							<div id="profilePasswordNew" class="form-group profile-field">
@@ -128,6 +134,7 @@
 			<jsp:include page="components/footer.jsp"></jsp:include>
 		</div>
 	</div>
+	<jsp:include page="components/uploadFile.jsp"></jsp:include>
 
 	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
 	<script type="text/javascript" src="/jam/resources/js/bootstrap.js"></script>

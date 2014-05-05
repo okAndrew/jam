@@ -25,7 +25,7 @@
 					data-toggle="dropdown">Profile <b class="caret"></b></a>
 					<ul class="dropdown-menu">
 						<li><a href="${myPageContext}/profile">My profile</a></li>
-						<li><a href="#">My cook books</a></li>
+						<li><a href="${myPageContext}/cookbooks">My cook books</a></li>
 						<li><a href="#">Something else here</a></li>
 					</ul></li>
 			</ul>
