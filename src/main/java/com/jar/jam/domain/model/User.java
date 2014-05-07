@@ -1,5 +1,7 @@
 package com.jar.jam.domain.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -7,6 +9,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 
 import org.hibernate.annotations.Type;
 
@@ -14,155 +17,90 @@ import com.jar.jam.domain.enums.UserRoles;
 
 @Entity
 @Table(name = "users")
-public class User {
+@XmlRootElement
+public class User implements Serializable {
 
-	@Id
-	@GeneratedValue
-	@Column(name = "id")
-	private Long id;
+    private static final long serialVersionUID = 2274392683998840860L;
 
-	@Column(name = "email")
-	private String email;
+    @Id
+    @GeneratedValue
+    @Column(name = "id")
+    private Long id;
 
-	@Column(name = "password")
-	private String password;
+    @Column(name = "email")
+    private String email;
 
-	@Column(name = "login")
-	private String login;
+    @Column(name = "password")
+    private String password;
 
-	@Enumerated(EnumType.STRING)
-	@Column(name = "role")
-	private UserRoles role;
+    @Column(name = "login")
+    private String login;
 
-	@Column(name = "raiting")
-	private Double raiting;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "role")
+    private UserRoles role;
 
-	@Column(name = "is_delete", nullable = false)
-	@Type(type = "org.hibernate.type.NumericBooleanType")
-	private boolean isDelete;
+    @Column(name = "raiting")
+    private Double raiting;
 
-	public Long getId() {
-		return id;
-	}
+    @Column(name = "is_deleted", nullable = false)
+    @Type(type = "org.hibernate.type.NumericBooleanType")
+    private boolean isDeleted;
 
-	public String getEmail() {
-		return email;
-	}
+    public Long getId() {
+	return id;
+    }
 
-	public String getPassword() {
-		return password;
-	}
+    public void setId(Long id) {
+	this.id = id;
+    }
 
-	public String getLogin() {
-		return login;
-	}
+    public String getEmail() {
+	return email;
+    }
 
-	public UserRoles getRole() {
-		return role;
-	}
+    public void setEmail(String email) {
+	this.email = email;
+    }
 
-	public Double getRaiting() {
-		return raiting;
-	}
+    public String getPassword() {
+	return password;
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public void setPassword(String password) {
+	this.password = password;
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    public String getLogin() {
+	return login;
+    }
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+    public void setLogin(String login) {
+	this.login = login;
+    }
 
-	public void setLogin(String login) {
-		this.login = login;
-	}
+    public UserRoles getRole() {
+	return role;
+    }
 
-	public void setRole(UserRoles role) {
-		this.role = role;
-	}
+    public void setRole(UserRoles role) {
+	this.role = role;
+    }
 
-	public void setRaiting(Double raiting) {
-		this.raiting = raiting;
-	}
+    public Double getRaiting() {
+	return raiting;
+    }
 
-	public boolean getIsDelete() {
-		return isDelete;
-	}
+    public void setRaiting(Double raiting) {
+	this.raiting = raiting;
+    }
 
-	public void setIsDelete(boolean isDelete) {
-		this.isDelete = isDelete;
-	}
+    public boolean isDeleted() {
+	return isDeleted;
+    }
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((email == null) ? 0 : email.hashCode());
-		result = prime * result + (int) (id ^ (id >>> 32));
-		result = prime * result + ((login == null) ? 0 : login.hashCode());
-		result = prime * result
-				+ ((password == null) ? 0 : password.hashCode());
-		long temp;
-		temp = Double.doubleToLongBits(raiting);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
-		result = prime * result + ((role == null) ? 0 : role.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		User other = (User) obj;
-		if (email == null) {
-			if (other.email != null)
-				return false;
-		} else if (!email.equals(other.email))
-			return false;
-		if (id != other.id)
-			return false;
-		if (login == null) {
-			if (other.login != null)
-				return false;
-		} else if (!login.equals(other.login))
-			return false;
-		if (password == null) {
-			if (other.password != null)
-				return false;
-		} else if (!password.equals(other.password))
-			return false;
-		if (Double.doubleToLongBits(raiting) != Double
-				.doubleToLongBits(other.raiting))
-			return false;
-		if (role == null) {
-			if (other.role != null)
-				return false;
-		} else if (!role.equals(other.role))
-			return false;
-		return true;
-	}
-
-	@Override
-	public String toString() {
-		StringBuilder user = new StringBuilder();
-
-		user.append("User [id=").append(id);
-		user.append(", email=").append(email);
-		user.append(", password=").append(password);
-		user.append(", login=").append(login);
-		user.append(", role=").append(role);
-		user.append(", raiting=").append(raiting);
-		user.append("]");
-
-		return user.toString();
-	}
+    public void setDeleted(boolean isDeleted) {
+	this.isDeleted = isDeleted;
+    }
 
 }

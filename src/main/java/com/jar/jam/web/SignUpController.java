@@ -24,7 +24,7 @@ public class SignUpController {
 			BindingResult result) {
 		user.setRole(UserRoles.USER);
 		user.setRaiting(0D);
-		user.setIsDelete(true);
+		user.setIsDeleted(true);
 		userService.create(user);
 		return "home";
 	}
