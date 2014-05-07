@@ -35,6 +35,7 @@ public class UserController {
     @RequestMapping(method = RequestMethod.POST, consumes = "application/json")
     @ResponseBody
     public User createUser(@RequestBody User user) {
+	System.out.println(user);
 	userService.create(user);
 	return user;
     }
