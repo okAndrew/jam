@@ -12,8 +12,8 @@ import com.jar.jam.dao.UserDao;
 @Transactional(readOnly=true)
 public class CustomUserDetailsService implements UserDetailsService {
 	
-	@Autowired
-	private UserDao userDAO;	
+//	@Autowired
+//	private UserDao userDAO;	
 
 	public UserDetails loadUserByUsername(String email) {
 		return null;

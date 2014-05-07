@@ -5,9 +5,36 @@
 
 .navbar-brand {
 	font-family: Lobster;
+	font-size: 40px;
 }
 
-body > div.container {
+.dropdown-toggle {
+	cursor: pointer;
+}
+
+body>div.container {
 	margin-top: 55px;
 	padding-top: 15px;
+}
+
+/*********************** Profile page ***********************/
+.img-thumbnail {
+	margin-bottom: 15px;
+}
+
+.avatar-block {
+	width: 15%;
+}
+
+.info-block {
+	width: 80%;
+}
+
+
+.block {
+	width: 50%;
+}
+
+.profile-field {
+	width: 80%;
 }

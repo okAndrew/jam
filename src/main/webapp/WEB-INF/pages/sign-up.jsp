@@ -7,7 +7,7 @@
 <link rel="stylesheet" type="text/css" href="/jam/resources/css/style.css" />
 </head>
 <body>
-	<jsp:include page="menu.jsp"></jsp:include>
+	<jsp:include page="components/menu.jsp"></jsp:include>
 
 	<div class="container">
 		<div class="panel panel-default">
@@ -44,7 +44,7 @@
 					</div>
 				</div>
 			</div>
-			<jsp:include page="footer.jsp"></jsp:include>
+			<jsp:include page="components/footer.jsp"></jsp:include>
 		</div>
 	</div>
 

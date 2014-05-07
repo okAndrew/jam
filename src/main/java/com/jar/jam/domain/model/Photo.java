@@ -21,18 +21,18 @@ public class Photo {
 	@GeneratedValue
 	@Column(name = "id")
 	private Long id;
-	
+
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "user_id")
 	private User user;
-	
+
 	@Column(name = "path")
 	private String path;
-	
+
 	@Enumerated(EnumType.STRING)
 	@Column(name = "entity")
 	private EntityType entity;
-	
+
 	@Column(name = "entity_id")
 	private Long entityId;
 
