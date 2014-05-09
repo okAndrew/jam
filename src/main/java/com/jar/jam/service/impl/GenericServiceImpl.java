@@ -8,6 +8,7 @@ import com.jar.jam.dao.GenericDao;
 import com.jar.jam.service.GenericService;
 
 public class GenericServiceImpl<T> implements GenericService<T> {
+	
 	@Autowired
 	protected GenericDao<T> dao;
 

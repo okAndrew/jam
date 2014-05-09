@@ -1,69 +1,40 @@
 @font-face {
-    font-family: Lobster;
-    src: url(/jam/resources/fonts/lobster_1.4.otf);
-}
-
-body {
-    margin-bottom: 20px;
-    background-color: #f0f0f0;
-}
-
-.panel {
-    background-color: white;
-}
-
-.navbar {
-    border-top: none;
-    border-left: none;
-    border-right: none;
-}
-
-.reg-header {
-    text-align: center;
+	font-family: Lobster;
+	src: url(/jam/resources/fonts/lobster_1.4.otf);
 }
 
 .navbar-brand {
-    font-family: Lobster;
+	font-family: Lobster;
+	font-size: 40px;
 }
 
-a.navbar-brand:link, a.navbar-brand:visited, a.navbar-brand:hover, a.navbar-brand:active {
-    color: orangered !important;
+.dropdown-toggle {
+	cursor: pointer;
 }
 
-.btn-custom {
-    color: #ffffff;
-    background-color: #FF4500;
-    border-color: #FF4500;
+body>div.container {
+	margin-top: 55px;
+	padding-top: 15px;
 }
 
-.btn-custom:hover,
-.btn-custom:focus,
-.btn-custom:active,
-.btn-custom.active {
-    color: #ffffff;
-    background-color: #e63e00;
-    border-color: #cc3700;
+/*********************** Profile page ***********************/
+.img-thumbnail {
+	margin-bottom: 15px;
 }
 
-.btn-custom.disabled:hover,
-.btn-custom.disabled:focus,
-.btn-custom.disabled:active,
-.btn-custom.disabled.active,
-.btn-custom[disabled]:hover,
-.btn-custom[disabled]:focus,
-.btn-custom[disabled]:active,
-.btn-custom[disabled].active,
-fieldset[disabled] .btn-custom:hover,
-fieldset[disabled] .btn-custom:focus,
-fieldset[disabled] .btn-custom:active,
-fieldset[disabled] .btn-custom.active {
-    color: rgba(255, 255, 255, .5);
-    background-color: #ffffff;
-    border-color: #FF4500;
+.avatar-block {
+	width: 15%;
 }
 
-textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="date"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="color"]:focus, .uneditable-input:focus, select.form-control:focus {
-    border-color: rgba(0, 0, 0, 0.5);
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1) inset, 0 0 8px rgba(0, 0, 0, 0.3);
-    outline: 0 none;
+.info-block {
+	width: 80%;
+}
+
+
+.block {
+	width: 50%;
+}
+
+.profile-field {
+	width: 80%;
 }
