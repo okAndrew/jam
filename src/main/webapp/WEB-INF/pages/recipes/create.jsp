@@ -7,39 +7,70 @@
 <link rel="stylesheet" type="text/css" href="/jam/resources/css/style.css">
 <script type="text/javascript">
 	var description = document.getElementById("description");
-	
-	function checkDescription(el) {
-		alert(el.value);
+
+	function chooseStep(step) {
+		var elements = document.getElementsByClassName("list-group-item");
+		for (var i = 0; i < elements.length; i++) {
+			elements[i].classList.remove('active');
+		}
+		step.classList.add("active");
 	}
 
-	
 	function isDescriptionValid(el) {
 		if (el.length < 5) {
 			return "Less than 5";
 		}
 	}
-	
+
 	function getElementByXPath(path) {
-	    return document.evaluate(path, document, null, 9, null).singleNodeValue;
+		return document.evaluate(path, document, null, 9, null).singleNodeValue;
 	};
 </script>
 </head>
 <body>
 	<jsp:include page="../menu.jsp"></jsp:include>
 	<div class="container">
-		<ol class="breadcrumb">
-			<li><a href="#">Home</a></li>
-			<li><a href="#">Recipes</a></li>
-			<li class="active">Create</li>
-		</ol>
 		<div class="panel panel-default">
-			<div class="panel-heading">
-				<h3 class="text-center">
-					Create new recipe <small>with love</small>
-
-				</h3>
-			</div>
 			<div class="panel-body">
+
+				<div class="row">
+					<div class="col-md-3">
+						<div class="list-group">
+							<a class="list-group-item general" onClick="chooseStep(this)">General info</a>
+							<a class="list-group-item ingredients" onClick="chooseStep(this)">Ingredients</a>
+							<a class="list-group-item">Steps</a>
+							<a class="list-group-item">Tags</a>
+							<a class="list-group-item" onClick="chooseStep(this)">Photos</a>
+						</div>
+					</div>
+					<div class="col-md-9">
+						<div class="panel panel-default">
+							<div class="panel-body">
+								<div class="step general">
+									1
+								</div>
+								<div class="step ingredients">
+									2
+								</div>
+								<div class="step steps">
+									3
+								</div>
+								<div class="step tags">
+									4
+								</div>
+								<div class="step photos">
+									5
+								</div>
+								<div class="step finish">
+									6
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<!-- 
 				<div class="row">
 					<div class="col-md-6">
 						<div class="panel panel-default">
@@ -142,8 +173,8 @@
 						</div>
 					</div>
 				</div>
-			</div>
-			<jsp:include page="../footer.jsp"></jsp:include>
+			 </div>-->
+			<jsp:include page="../components/footer.jsp"></jsp:include>
 		</div>
 	</div>
 	<script type="text/javascript" src="https://code.jquery.com/jquery.min.js"></script>

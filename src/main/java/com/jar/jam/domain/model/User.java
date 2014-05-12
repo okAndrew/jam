@@ -9,9 +9,13 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 import org.codehaus.jackson.map.annotate.JsonDeserialize;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
+import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
 import org.hibernate.annotations.Type;
 import org.joda.time.DateTime;
 
@@ -22,6 +26,7 @@ import com.jar.jam.utils.CustomDateSerializer;
 
 @Entity
 @Table(name = "users")
+@JsonSerialize(include = Inclusion.NON_NULL)
 public class User implements Serializable {
 
     private static final long serialVersionUID = 2274392683998840860L;
@@ -32,9 +37,11 @@ public class User implements Serializable {
     private Long id;
 
     @Column(name = "email")
+    @NotNull @Pattern(regexp="")
     private String email;
 
     @Column(name = "password")
+    @NotNull
     private String password;
 
     @Column(name = "first_name")
@@ -167,5 +174,5 @@ public class User implements Serializable {
 		+ login + ", role=" + role + ", raiting=" + raiting
 		+ ", isDelete=" + isDelete + "]";
     }
-
+    
 }
