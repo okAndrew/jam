@@ -28,7 +28,7 @@
 </script>
 </head>
 <body>
-	<jsp:include page="../menu.jsp"></jsp:include>
+	<jsp:include page="../components/menu.jsp"></jsp:include>
 	<div class="container">
 		<div class="panel panel-default">
 			<div class="panel-body">

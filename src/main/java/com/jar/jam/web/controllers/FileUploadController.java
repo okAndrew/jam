@@ -1,4 +1,4 @@
-package com.jar.jam.web;
+package com.jar.jam.web.controllers;
 
 import java.io.BufferedOutputStream;
 import java.io.File;

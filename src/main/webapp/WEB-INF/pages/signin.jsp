@@ -16,9 +16,9 @@
 					<div class="col-md-5"></div>
 					<div class="col-md-2">
 						<form method="post" action='<c:url value='j_spring_security_check'/>'>
-							<input type="text" name="j_username" id="j_username"size="30" maxlength="40"  />
-							<input type="password" name="j_password" id="j_password" size="30" maxlength="32" />
-							<input type="submit" value="Login" />
+							<input type="text" name="email" id="email" size="30" maxlength="40" />
+							<input type="password" name="password" id="password" size="30" maxlength="32" />
+							<input type="submit" value="Sign in" />
 						</form>
 					</div>
 					<div class="col-md-5"></div>

@@ -20,7 +20,7 @@ import org.hibernate.annotations.Type;
 import org.joda.time.DateTime;
 
 import com.jar.jam.domain.enums.SexType;
-import com.jar.jam.domain.enums.UserRoles;
+import com.jar.jam.domain.enums.UserRole;
 import com.jar.jam.utils.CustomDateDeserializer;
 import com.jar.jam.utils.CustomDateSerializer;
 
@@ -63,7 +63,7 @@ public class User implements Serializable {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "role")
-    private UserRoles role;
+    private UserRole role;
 
     @Column(name = "raiting")
     private Double raiting;
@@ -88,7 +88,7 @@ public class User implements Serializable {
 	return login;
     }
 
-    public UserRoles getRole() {
+    public UserRole getRole() {
 	return role;
     }
 
@@ -112,7 +112,7 @@ public class User implements Serializable {
 	this.login = login;
     }
 
-    public void setRole(UserRoles role) {
+    public void setRole(UserRole role) {
 	this.role = role;
     }
 
@@ -174,5 +174,5 @@ public class User implements Serializable {
 		+ login + ", role=" + role + ", raiting=" + raiting
 		+ ", isDelete=" + isDelete + "]";
     }
-    
+
 }
