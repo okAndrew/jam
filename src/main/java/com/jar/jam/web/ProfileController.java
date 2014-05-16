@@ -37,10 +37,11 @@ public class ProfileController {
 	}
 
 	private void addAvatar(ModelMap model, User user) {
-		if (photoServiceImpl.getAvatarByUser(user).getPath() != null
+		if (photoServiceImpl.getAvatarByUser(user) != null
 				&& photoServiceImpl.getAvatarByUser(user).getPath() != "") {
-			model.addAttribute("userAvatar",
-					photoServiceImpl.getAvatarByUser(user).getPath());
+			String[] path = photoServiceImpl.getAvatarByUser(user).getPath()
+					.split("\\\\");
+			model.addAttribute("userAvatar", path[path.length - 1]);
 		}
 	}
 

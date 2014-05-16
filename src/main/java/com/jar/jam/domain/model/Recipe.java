@@ -31,22 +31,25 @@ public class Recipe {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "user_id")
 	private User user;
-	
+
 	@Column(name = "views")
 	private Integer views;
-	
+
 	@Column(name = "complexity")
 	private Integer complexity;
-	
-	@ManyToOne(cascade={CascadeType.ALL})
-    @JoinColumn(name="recipe_id")
+
+	@ManyToOne(cascade = { CascadeType.ALL })
+	@JoinColumn(name = "recipe_id")
 	private Recipe parent;
-	
+
 	@Column(name = "raiting")
 	private Double raiting;
-	
+
 	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "recipes")
 	private List<Tag> tags;
+
+	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "recipes")
+	private List<CookBook> cookBooks;
 
 	public Long getId() {
 		return id;
@@ -110,6 +113,22 @@ public class Recipe {
 
 	public void setRaiting(Double raiting) {
 		this.raiting = raiting;
+	}
+
+	public List<Tag> getTags() {
+		return tags;
+	}
+
+	public void setTags(List<Tag> tags) {
+		this.tags = tags;
+	}
+
+	public List<CookBook> getCookBooks() {
+		return cookBooks;
+	}
+
+	public void setCookBooks(List<CookBook> cookBooks) {
+		this.cookBooks = cookBooks;
 	}
 
 	@Override

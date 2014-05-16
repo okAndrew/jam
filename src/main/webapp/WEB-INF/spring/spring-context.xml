@@ -23,7 +23,7 @@
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<mvc:annotation-driven />
 	
-	<mvc:resources mapping="/images/**" location="file:/c/JAM/" />
+	<mvc:resources mapping="/images/**" location="file:///c:/JAM/" />
 
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -37,7 +37,7 @@
 
 	<bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-		<property name="maxUploadSize" value="100000" />
+		<property name="maxUploadSize" value="10000000" />
 	</bean>
 
 </beans>
