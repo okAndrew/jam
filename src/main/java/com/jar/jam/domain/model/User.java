@@ -1,6 +1,6 @@
 package com.jar.jam.domain.model;
 
-import java.util.Date;
+import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,147 +9,170 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
+import org.codehaus.jackson.map.annotate.JsonDeserialize;
+import org.codehaus.jackson.map.annotate.JsonSerialize;
+import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
 import org.hibernate.annotations.Type;
+import org.joda.time.DateTime;
 
 import com.jar.jam.domain.enums.SexType;
-import com.jar.jam.domain.enums.UserRoles;
+import com.jar.jam.domain.enums.UserRole;
+import com.jar.jam.utils.CustomDateDeserializer;
+import com.jar.jam.utils.CustomDateSerializer;
 
 @Entity
 @Table(name = "users")
-public class User {
+@JsonSerialize(include = Inclusion.NON_NULL)
+public class User implements Serializable {
 
-	@Id
-	@GeneratedValue
-	@Column(name = "id")
-	private Long id;
+    private static final long serialVersionUID = 2274392683998840860L;
 
-	@Column(name = "email")
-	private String email;
+    @Id
+    @GeneratedValue
+    @Column(name = "id")
+    private Long id;
 
-	@Column(name = "password")
-	private String password;
+    @Column(name = "email")
+    @NotNull @Pattern(regexp="")
+    private String email;
 
-	@Column(name = "first_name")
-	private String firstName;
+    @Column(name = "password")
+    @NotNull
+    private String password;
 
-	@Column(name = "last_name")
-	private String lastName;
+    @Column(name = "first_name")
+    private String firstName;
 
-	@Column(name = "birthday")
-	@Temporal(value = TemporalType.DATE)
-	private Date birthday;
+    @Column(name = "last_name")
+    private String lastName;
 
-	@Enumerated(EnumType.STRING)
-	@Column(name = "sex")
-	private SexType sex;
+    @Column(name = "birthday")
+    @Type(type="org.jadira.usertype.dateandtime.joda.PersistentDateTime")
+    private DateTime birthday;
 
-	@Column(name = "login")
-	private String login;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "sex")
+    private SexType sex;
 
-	@Enumerated(EnumType.STRING)
-	@Column(name = "role")
-	private UserRoles role;
+    @Column(name = "login")
+    private String login;
 
-	@Column(name = "raiting")
-	private Double raiting;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "role")
+    private UserRole role;
 
-	@Column(name = "is_delete", nullable = false)
-	@Type(type = "org.hibernate.type.NumericBooleanType")
-	private boolean isDelete;
+    @Column(name = "raiting")
+    private Double raiting;
 
-	public Long getId() {
-		return id;
-	}
+    @Column(name = "is_delete", nullable = false)
+    @Type(type = "org.hibernate.type.NumericBooleanType")
+    private boolean isDelete;
 
-	public String getEmail() {
-		return email;
-	}
+    public Long getId() {
+	return id;
+    }
 
-	public String getPassword() {
-		return password;
-	}
+    public String getEmail() {
+	return email;
+    }
 
-	public String getLogin() {
-		return login;
-	}
+    public String getPassword() {
+	return password;
+    }
 
-	public UserRoles getRole() {
-		return role;
-	}
+    public String getLogin() {
+	return login;
+    }
 
-	public Double getRaiting() {
-		return raiting;
-	}
+    public UserRole getRole() {
+	return role;
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public Double getRaiting() {
+	return raiting;
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    public void setId(Long id) {
+	this.id = id;
+    }
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+    public void setEmail(String email) {
+	this.email = email;
+    }
 
-	public void setLogin(String login) {
-		this.login = login;
-	}
+    public void setPassword(String password) {
+	this.password = password;
+    }
 
-	public void setRole(UserRoles role) {
-		this.role = role;
-	}
+    public void setLogin(String login) {
+	this.login = login;
+    }
 
-	public void setRaiting(Double raiting) {
-		this.raiting = raiting;
-	}
+    public void setRole(UserRole role) {
+	this.role = role;
+    }
 
-	public boolean getIsDelete() {
-		return isDelete;
-	}
+    public void setRaiting(Double raiting) {
+	this.raiting = raiting;
+    }
 
-	public void setIsDelete(boolean isDelete) {
-		this.isDelete = isDelete;
-	}
+    public boolean getIsDelete() {
+	return isDelete;
+    }
 
-	public String getFirstName() {
-		return firstName;
-	}
+    public void setIsDelete(boolean isDelete) {
+	this.isDelete = isDelete;
+    }
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
+    public String getFirstName() {
+	return firstName;
+    }
 
-	public String getLastName() {
-		return lastName;
-	}
+    public void setFirstName(String firstName) {
+	this.firstName = firstName;
+    }
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
+    public String getLastName() {
+	return lastName;
+    }
 
-	public Date getBirthday() {
-		return birthday;
-	}
+    public void setLastName(String lastName) {
+	this.lastName = lastName;
+    }
 
-	public void setBirthday(Date birthday) {
-		this.birthday = birthday;
-	}
+    @JsonSerialize(using = CustomDateSerializer.class)
+    public DateTime getBirthday() {
+	return birthday;
+    }
 
-	public SexType getSex() {
-		return sex;
-	}
+    @JsonDeserialize(using = CustomDateDeserializer.class)
+    public void setBirthday(DateTime birthday) {
+	this.birthday = birthday;
+    }
 
-	public void setSex(SexType sex) {
-		this.sex = sex;
-	}
+    public SexType getSex() {
+	return sex;
+    }
 
-	public void setDelete(boolean isDelete) {
-		this.isDelete = isDelete;
-	}
+    public void setSex(SexType sex) {
+	this.sex = sex;
+    }
+
+    public void setDelete(boolean isDelete) {
+	this.isDelete = isDelete;
+    }
+
+    @Override
+    public String toString() {
+	return "User [id=" + id + ", email=" + email + ", password=" + password
+		+ ", firstName=" + firstName + ", lastName=" + lastName
+		+ ", birthday=" + birthday + ", sex=" + sex + ", login="
+		+ login + ", role=" + role + ", raiting=" + raiting
+		+ ", isDelete=" + isDelete + "]";
+    }
 
 }
